@@ -11,15 +11,24 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject PlayerRigidBody;
     [SerializeField] GameObject PlayerCar;
     [SerializeField] Transform SpawnTarget;
-    [SerializeField] CinemachineStateDrivenCamera camera;
+    [SerializeField] CinemachineVirtualCamera camera;
     GameObject CurentPlayer;
     bool carIsDead = false;
     int playerIndex = 0;
+
 
     private void Awake()
     {        
         CurentPlayer = PlayerCar;
         playerIndex = 1;       
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            changePlayer();
+        }
     }
 
     void Start()
@@ -44,7 +53,7 @@ public class GameController : MonoBehaviour
         CurentPlayer.transform.position = SpawnTarget.position;
         CurentPlayer.SetActive(true);
         camera.Follow = CurentPlayer.transform;
-        camera.LookAt = CurentPlayer.transform;
+        camera.LookAt = CurentPlayer.transform;        
     }
 
     void changePlayer()
@@ -55,23 +64,20 @@ public class GameController : MonoBehaviour
             CurentPlayer = PlayerRigidBody;
             playerIndex = 2;
             instPlayer();
-            print("W1");
         }
         else if (playerIndex == 2)
         {
             CurentPlayer.SetActive(false);
-            CurentPlayer = PlayerCharacterController;
-            playerIndex = 3;            
-            instPlayer();
-            print("W2");
-        }
-        else 
-        {
-            CurentPlayer.SetActive(false);
             CurentPlayer = PlayerCar;
-            playerIndex = 1;
+            playerIndex = 1;            
             instPlayer();
         }
+        //else
+        //{
+        //    CurentPlayer.SetActive(false);
+        //    CurentPlayer = ;
+        //    playerIndex = 1;
+        //    instPlayer();
+        //}
     }
-
 }

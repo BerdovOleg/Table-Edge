@@ -9,6 +9,11 @@ namespace UnityStandardAssets.SceneUtils
         public float surfaceOffset = 1.5f;
         public GameObject setTargetOn;
 
+        public float minX;
+        public float maxX;
+        public float minZ;
+        public float maxZ;
+
         // Update is called once per frame
         private void Update()
         {
@@ -27,6 +32,14 @@ namespace UnityStandardAssets.SceneUtils
             {
                 setTargetOn.SendMessage("SetTarget", transform);
             }
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag=="Enemy")
+            {
+                transform.position = new Vector3(UnityEngine.Random.Range(minX, maxX), transform.position.y, UnityEngine.Random.Range(minZ, maxZ));
+            }
+          
         }
     }
 }
