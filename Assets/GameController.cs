@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject PlayerCar;
     [SerializeField] Transform SpawnTarget;
     [SerializeField] CinemachineVirtualCamera camera;
+    [SerializeField] CinemachineStateDrivenCamera ParentCam;
     GameObject CurentPlayer;
     bool carIsDead = false;
     int playerIndex = 0;
@@ -27,8 +28,10 @@ public class GameController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            print(other.name);
             changePlayer();
         }
+        print("notWork");
     }
 
     void Start()
@@ -46,6 +49,8 @@ public class GameController : MonoBehaviour
         {
             changePlayer();
         }
+       // print(ParentCam.m_Follow.localPosition);
+        //print(camera.m_LookAt.TransformPoint();
     }
 
     private void instPlayer()

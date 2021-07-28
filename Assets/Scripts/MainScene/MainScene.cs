@@ -29,6 +29,10 @@ public class MainScene : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    public void LoadArenaOne()
+    {
+        SceneManager.LoadScene(4);
+    }
 
 
 }

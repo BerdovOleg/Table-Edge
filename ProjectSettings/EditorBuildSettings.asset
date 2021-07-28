@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CamUp.unity
     guid: 24bec199b92710e40877addcce0e5d3d
+  - enabled: 1
+    path: Assets/Scenes/Arens/ArenaOne.unity
+    guid: 0f33c11fb61566b429075193567d19dc
   m_configObjects: {}

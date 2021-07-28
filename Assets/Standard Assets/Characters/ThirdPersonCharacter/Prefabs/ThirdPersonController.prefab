@@ -1476,11 +1476,11 @@ GameObject:
   - component: {fileID: 11469404}
   m_Layer: 0
   m_Name: ThirdPersonController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &408730
 Transform:
   m_ObjectHideFlags: 0
@@ -1573,11 +1573,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 9
-  m_GravityMultiplier: 2
+  m_JumpPower: 25
+  m_GravityMultiplier: 5
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1
+  m_MoveSpeedMultiplier: 1.2
+  m_AnimSpeedMultiplier: 1.99
   m_GroundCheckDistance: 0.3
 --- !u!1 &150244
 GameObject:
