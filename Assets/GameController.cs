@@ -7,12 +7,10 @@ public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] GameObject PlayerCharacterController;
     [SerializeField] GameObject PlayerRigidBody;
     [SerializeField] GameObject PlayerCar;
     [SerializeField] Transform SpawnTarget;
-    [SerializeField] CinemachineVirtualCamera camera;
-    [SerializeField] CinemachineStateDrivenCamera ParentCam;
+    [SerializeField] CameraFollow camera;
     GameObject CurentPlayer;
     bool carIsDead = false;
     int playerIndex = 0;
@@ -38,8 +36,7 @@ public class GameController : MonoBehaviour
     {
         CurentPlayer.transform.position = SpawnTarget.position;
         CurentPlayer.SetActive(true);
-        camera.Follow = CurentPlayer.transform;
-        camera.LookAt = CurentPlayer.transform;
+        camera.target = CurentPlayer.transform;
     }
 
     // Update is called once per frame
@@ -49,16 +46,14 @@ public class GameController : MonoBehaviour
         {
             changePlayer();
         }
-       // print(ParentCam.m_Follow.localPosition);
-        //print(camera.m_LookAt.TransformPoint();
+
     }
 
     private void instPlayer()
     {
         CurentPlayer.transform.position = SpawnTarget.position;
         CurentPlayer.SetActive(true);
-        camera.Follow = CurentPlayer.transform;
-        camera.LookAt = CurentPlayer.transform;        
+        camera.target = CurentPlayer.transform;
     }
 
     void changePlayer()
@@ -77,12 +72,5 @@ public class GameController : MonoBehaviour
             playerIndex = 1;            
             instPlayer();
         }
-        //else
-        //{
-        //    CurentPlayer.SetActive(false);
-        //    CurentPlayer = ;
-        //    playerIndex = 1;
-        //    instPlayer();
-        //}
     }
 }
